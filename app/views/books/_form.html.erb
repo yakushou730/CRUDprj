@@ -1,7 +1,7 @@
 <!-- show error messages -->
 <% if @book.errors.any? %>
   <ul>
-    <% @event.errors.full_messages.each do |msg| %>
+    <% @book.errors.full_messages.each do |msg| %>
       <li><%= msg %></li>
     <% end %>
   </ul>
