@@ -1,8 +1,7 @@
 <h1>CRUD Project - Book System</h1>
 
-
-<% @books.each do |book| %>
-  <table>
+<table>
+  <% @books.each do |book| %>
     <tr>
       <td>
         <%= book.name %>
@@ -13,8 +12,8 @@
         <%= link_to "Delete", book_path(book), method: :delete, data: {confirm: 'Are you sure?'} %>
       </td>
     </tr>
-  </table>
-<% end %>
+  <% end %>
+</table>
 
 <%= link_to 'New Book', new_book_path %>
 

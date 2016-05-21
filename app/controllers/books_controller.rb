@@ -8,7 +8,7 @@ class BooksController < ApplicationController
   end
 
   def show
-
+    @page_title = @book.name
   end
 
   def new
@@ -17,8 +17,13 @@ class BooksController < ApplicationController
 
   def create
     @book = Book.new(book_params)
-    @book.save
-    redirect_to books_path
+    if @book.save
+      flash[:notice] = "create success"
+      redirect_to books_path
+    else
+      render 'new'
+    end
+
   end
 
   def edit
@@ -26,12 +31,19 @@ class BooksController < ApplicationController
   end
 
   def update
-    @book.update(book_params)
-    redirect_to books_path
+    if @book.update(book_params)
+      flash[:notice] = "update success"
+      redirect_to books_path
+    else
+      render 'edit'
+    end
+
   end
 
   def destroy
     @book.destroy
+
+    flash[:alert] = "delete success"
 
     redirect_to books_path
   end
