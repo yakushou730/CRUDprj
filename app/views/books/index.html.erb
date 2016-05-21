@@ -1,11 +1,19 @@
 <h1>CRUD Project - Book System</h1>
 
+
 <% @books.each do |book| %>
   <table>
     <tr>
       <td>
         <%= book.name %>
       </td>
+      <td>
+        <%= link_to "Show", book_path(book) %>
+        <%= link_to "Edit", edit_book_path(book) %>
+        <%= link_to "Delete", book_path(book), method: :delete, data: {confirm: 'Are you sure?'} %>
+      </td>
     </tr>
   </table>
 <% end %>
+
+<%= link_to 'New Book', new_book_path %>

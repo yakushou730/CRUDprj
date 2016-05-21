@@ -1,0 +1,21 @@
+<!-- show error messages -->
+<% if @book.errors.any? %>
+  <ul>
+    <% @event.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<div>
+  <%= f.label :name, "Name" %>
+  <%= f.text_field :name %>
+</div>
+<div>
+  <%= f.label :description, "Description" %>
+  <%= f.text_area :description %>
+</div>
+<div>
+  <%= f.label :isbn, "ISBN" %>
+  <%= f.text_field :isbn %>
+</div>
