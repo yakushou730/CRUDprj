@@ -10,7 +10,7 @@ class BooksController < ApplicationController
       @book = Book.new
     end
 
-    @books = Book.page(params[:page]).per(10)
+    prepare_variable_for_index_template
 
   end
 
@@ -28,7 +28,8 @@ class BooksController < ApplicationController
       flash[:notice] = "create success"
       redirect_to books_path
     else
-      render 'new'
+      prepare_variable_for_index_template
+      render action: :index
     end
 
   end
@@ -43,7 +44,8 @@ class BooksController < ApplicationController
       flash[:notice] = "update success"
       redirect_to books_path
     else
-      render 'edit'
+      prepare_variable_for_index_template
+      render action: :index
     end
 
   end
@@ -62,5 +64,8 @@ class BooksController < ApplicationController
   end
   def book_params
     params.require(:book).permit(:name, :description, :isbn)
+  end
+  def prepare_variable_for_index_template
+    @books = Book.page(params[:page]).per(10)
   end
 end
