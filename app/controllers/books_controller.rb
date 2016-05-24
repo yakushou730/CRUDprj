@@ -3,8 +3,15 @@ class BooksController < ApplicationController
   before_action :set_book, only: [:show, :edit, :update, :destroy]
 
   def index
-    # @books = Book.all
+
+    if params[:eid]
+      @book = Book.find(params[:eid])
+    else
+      @book = Book.new
+    end
+
     @books = Book.page(params[:page]).per(10)
+
   end
 
   def show
@@ -31,6 +38,7 @@ class BooksController < ApplicationController
   end
 
   def update
+
     if @book.update(book_params)
       flash[:notice] = "update success"
       redirect_to books_path
