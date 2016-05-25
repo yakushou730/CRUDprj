@@ -65,7 +65,7 @@ class BooksController < ApplicationController
     @book = Book.find(params[:id])
   end
   def book_params
-    params.require(:book).permit(:name, :description, :isbn)
+    params.require(:book).permit(:name, :description, :isbn, :publish_date, :on_store_time)
   end
   def prepare_variable_for_index_template
     @books = Book.page(params[:page]).per(10)

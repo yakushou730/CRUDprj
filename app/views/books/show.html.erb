@@ -1,7 +1,9 @@
 <h2><%= @book.name %></h2>
 <p>Description : <%= @book.description %></p>
 <p>ISBN : <%= @book.isbn %></p>
+<p>Publish Date : <%= @book.publish_date %></p>
+<p>On Store Datetime : <%= @book.on_store_time %></p>
 
 <p><%= link_to 'Back to index', books_path %></p>
 
-<!--<%= simple_format(debug(@book)) %>-->
+<%#= simple_format(debug(@book)) %>
