@@ -4,6 +4,8 @@ class BooksController < ApplicationController
 
   def index
 
+    @page = params[:page]
+
     if params[:eid]
       @book = Book.find(params[:eid])
     else
@@ -55,7 +57,7 @@ class BooksController < ApplicationController
 
     flash[:alert] = "delete success"
 
-    redirect_to books_path
+    redirect_to books_path(page: params[:page])
   end
 
   private
