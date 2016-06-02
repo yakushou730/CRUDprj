@@ -2,30 +2,30 @@
 <% if @book.errors.any? %>
   <ul>
     <% @book.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
+      <li style="color: red"><%= msg %></li>
     <% end %>
   </ul>
 <% end %>
 
-<div>
-  <%= f.label :name, "Name" %>
-  <%= f.text_field :name %>
-</div>
-<div>
-  <%= f.label :description, "Description" %>
-  <%= f.text_area :description %>
-</div>
-<div>
-  <%= f.label :isbn, "ISBN" %>
-  <%= f.text_field :isbn %>
-</div>
-
-<div>
-  <%= f.label :publish_date, "Publish Date" %>
-  <%= f.date_select :publish_date %>
-</div>
-
-<div>
-  <%= f.label :on_store_time, "On Store Time" %>
-  <%= f.datetime_select :on_store_time %>
-</div>
+<table>
+  <tr>
+    <td><%= f.label :name, "Name" %></td>
+    <td><%= f.text_field :name %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :description, "Description" %></td>
+    <td><%= f.text_area :description %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :isbn, "ISBN" %></td>
+    <td><%= f.text_field :isbn %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :publish_date, "Publish Date" %></td>
+    <td><%= f.date_select :publish_date %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :on_store_time, "On Store Time" %></td>
+    <td><%= f.datetime_select :on_store_time %></td>
+  </tr>
+</table>
