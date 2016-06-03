@@ -6,8 +6,8 @@ class BooksController < ApplicationController
 
     @page = params[:page]
 
-    if params[:eid]
-      @book = Book.find(params[:eid])
+    if params[:book_id]
+      @book = Book.find(params[:book_id])
     else
       @book = Book.new
     end
