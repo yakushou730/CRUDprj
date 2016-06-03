@@ -4,8 +4,6 @@ class BooksController < ApplicationController
 
   def index
 
-    @page = params[:page]
-
     if params[:book_id]
       @book = Book.find(params[:book_id])
     else
